@@ -5,12 +5,11 @@ A python based script for monitoring, analytics and control for Home-Assistant.
 This project is based on code from [IERO](https://github.com/iero/Rika-Stove).
 
 ## Dependancies (with tested version)
-$ pip install colorama==0.3.7
-$ pip install requests==2.18.4
-$ pip install beautifulsoup4==4.8.1
-$ pip install paho_mqtt==1.4.0
-
-A MQTT server...
+* $ pip install colorama==0.3.7
+* $ pip install requests==2.18.4
+* $ pip install beautifulsoup4==4.8.1
+* $ pip install paho_mqtt==1.4.0
+* A MQTT server...
 
 ## Features
 
