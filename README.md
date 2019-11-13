@@ -77,7 +77,8 @@ sensors:
   value_template: '{{ value_json["SENSOR"]["flame_temp"] }}'
   unit_of_measurement: "°C"
 ```
-* More information can be created with if needed from rika_domo.py, line 159 (json_data=...)
+* More information can be added if needed from rika_domo.py, line 159 (json_data=...)
+  - Check json_full_from_firenet.txt for all available FIRENET fields (dump from the website)
 
 ## Issues & Feature Requests
 
