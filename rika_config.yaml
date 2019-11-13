@@ -1,0 +1,18 @@
+system:
+  url_base: 'https://www.rika-firenet.com'
+  url_login: '/web/login'
+  url_stove: '/web/stove/'
+  url_api: '/api/client/'
+  json_path: '/srv/homeassistant/json.data/rika.json'
+  verbose: 'True'
+
+user:
+  username: 'manoir.de.chene@gmail.com'
+  password: '2@mPv@QAt3vn'
+
+mqtt:
+  server_address: '192.168.2.5'
+  topic: 'tele/rika/SENSOR'
+  client: 'rika'
+  client_username: 'homeassistant'
+  client_password: 'US694PLUHCqp'
