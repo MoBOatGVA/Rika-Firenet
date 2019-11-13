@@ -1,6 +1,8 @@
 # Rika-Firenet
-Code Python pour controller un poêle RIKA au travers d'un FIRENET
-A python based script for monitoring, analytics and control for Home-Assistant.
+Python script to retrieve information from a RIKA DOMO using the FIRENET option (web based).
+The script should work with other models with minor changes.
+
+This version is made to monitoring, analytics and control for Home-Assistant using a MQTT solution.
 
 This project is based on code from [IERO](https://github.com/iero/Rika-Stove).
 
