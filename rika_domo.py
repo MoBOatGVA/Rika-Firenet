@@ -210,23 +210,23 @@ if __name__ == "__main__":
         Add the following items (and fill the missing data):
 
         system:
-            url_base: 'https://www.rika-firenet.com'
-            url_login: '/web/login'
-            url_stove: '/web/stove/'
-            url_api: '/api/client/'
-            json_path: ''
-            verbose: ''
+          url_base: 'https://www.rika-firenet.com' # FIRENET Main page URL
+          url_login: '/web/login' # FIRENET Login page partial URL
+          url_stove: '/web/stove/' # FIRENET Stove page partial URL
+          url_api: '/api/client/' # FIRENET API patirl URL
+          json_path: '' # Local PATH to save JSON file
+          verbose: 'False' # Dump the content of the JSON file once process is done - Value : True or False
 
         user:
-            username: ''
-            password: ''
+          username: '' # FIRENET User Name
+          password: '' # FIRENET Password
 
         mqtt:
-            server_address: ''
-            topic: ''
-            client: ''
-            client_username: ''
-            client_password: ''
+          server_address: '' # MQTT IP address
+          topic: '' # MQTT Topic (sample: tele/rika/SENSOR)
+          client: '' # MQTT Client Name (sample: rika)
+          client_username: '' # MQTT Client Username (if applicable)
+          client_password: '' # MQTT Client Password (if applicable)
         """
         print(error_text)
         exit()
