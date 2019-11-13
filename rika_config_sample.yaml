@@ -1,0 +1,18 @@
+system:
+  url_base: 'https://www.rika-firenet.com'
+  url_login: '/web/login'
+  url_stove: '/web/stove/'
+  url_api: '/api/client/'
+  json_path: ''
+  verbose: 'True'
+
+user:
+  username: ''
+  password: ''
+
+mqtt:
+  server_address: ''
+  topic: ''
+  client: 'rika'
+  client_username: ''
+  client_password: ''
