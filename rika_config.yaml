@@ -5,6 +5,7 @@ system:
   url_api: '/api/client/' # FIRENET API patirl URL
   json_path: '' # Local PATH to save JSON file
   verbose: 'False' # Dump the content of the JSON file once process is done - Value : True or False
+  verbose_extended: 'False' # Dump extended content, including the Rika website page one logged : True of False
 
 user:
   username: '' # FIRENET User Name
