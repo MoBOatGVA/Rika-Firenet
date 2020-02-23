@@ -18,6 +18,9 @@ This project is based on code from [IERO](https://github.com/iero/Rika-Stove).
 * Access the RIKA-FIRENET web interface to retrieve information.
 * Use MQTT to publish the information
 
+## Version
+* Current: Version 1.1 : Minor bugs fixed and add extended debugging in verbose mode
+
 ## Preview
 
 ![Script display](https://github.com/MoBOatGVA/Rika-Firenet/blob/master/rika_domo_display.png)
