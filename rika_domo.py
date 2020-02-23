@@ -42,7 +42,7 @@ def connect(client, url_base, url_login, url_stove, user, pwd) :
     # print(r.text)
     web_response = r.text
 
-    if ('Log out' in r.text) == True :
+    if ('logout' in r.text) == True :
         print(Fore.GREEN + '               Connected to Rika !' + Fore.RESET)
 
         soup = BeautifulSoup(r.content, "html.parser")
