@@ -1,3 +1,8 @@
+#   Version:    1.1
+#   Date   :    23.02.2020
+#   Source :    https://github.com/MoBOatGVA/Rika-Firenet
+#
+
 import sys
 import time
 import yaml
@@ -5,6 +10,7 @@ import requests
 import json
 import datetime
 import paho.mqtt.client as mqtt
+import os
 from pathlib import Path
 import colorama
 from colorama import Fore, Back, Style
@@ -13,6 +19,8 @@ requests.packages.urllib3.disable_warnings()
 
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup # parse page
+
+web_response = ""
 
 def load_config(config_file):
     with open(config_file, 'r') as stream:
@@ -26,9 +34,13 @@ def connect(client, url_base, url_login, url_stove, user, pwd) :
         'email':user,
         'password':pwd}
 
+    # retreive content of the web site in case of extended verbose
+    global web_response
+
     r = client.post(url_base+url_login, data)
     # print(r.url)
     # print(r.text)
+    web_response = r.text
 
     if ('Log out' in r.text) == True :
         print(Fore.GREEN + '               Connected to Rika !' + Fore.RESET)
@@ -194,8 +206,10 @@ def on_message(client, userdata, msg):
     m_in=json.loads(m_decode)
 
 if __name__ == "__main__":
-    
-    config_file = Path("rika_config.yaml")
+
+    config_file = Path(os.path.dirname(__file__) + "/rika_config.yaml")
+    #print('basename:    ', os.path.basename(__file__))
+    #print('dirname:     ', os.path.dirname(__file__))
 
     if config_file.exists():
         config = load_config(config_file)
@@ -210,23 +224,24 @@ if __name__ == "__main__":
         Add the following items (and fill the missing data):
 
         system:
-          url_base: 'https://www.rika-firenet.com' # FIRENET Main page URL
-          url_login: '/web/login' # FIRENET Login page partial URL
-          url_stove: '/web/stove/' # FIRENET Stove page partial URL
-          url_api: '/api/client/' # FIRENET API patirl URL
-          json_path: '' # Local PATH to save JSON file
-          verbose: 'False' # Dump the content of the JSON file once process is done - Value : True or False
+            url_base: 'https://www.rika-firenet.com'
+            url_login: '/web/login'
+            url_stove: '/web/stove/'
+            url_api: '/api/client/'
+            json_path: ''
+            verbose: ''
+            verbose_extended: ''
 
         user:
-          username: '' # FIRENET User Name
-          password: '' # FIRENET Password
+            username: ''
+            password: ''
 
         mqtt:
-          server_address: '' # MQTT IP address
-          topic: '' # MQTT Topic (sample: tele/rika/SENSOR)
-          client: '' # MQTT Client Name (sample: rika)
-          client_username: '' # MQTT Client Username (if applicable)
-          client_password: '' # MQTT Client Password (if applicable)
+            server_address: ''
+            topic: ''
+            client: ''
+            client_username: ''
+            client_password: ''
         """
         print(error_text)
         exit()
@@ -282,8 +297,16 @@ if __name__ == "__main__":
     client.loop_stop()
     client.disconnect()
     print(Fore.CYAN + "Process done !" + Fore.RESET)
-    print("")
     # To display result of the API, uncomment following line
     if config['system']['verbose'] == "True":
+        print("")
+        print("JSON CONTENT (RESULT OF DATA RETRIEVAL)")
+        print("----------------------------------------------------------------------------------------------")
         print(stove_infos)
-    
+        print("----------------------------------------------------------------------------------------------")
+        if config['system']['verbose_extended'] == 'True':
+            print("")
+            print("HTML CONTENT FROM RIKA WEBSITE")
+            print("----------------------------------------------------------------------------------------------")
+            print(web_response)
+            print("----------------------------------------------------------------------------------------------")
