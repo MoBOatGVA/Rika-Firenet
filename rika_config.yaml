@@ -3,7 +3,7 @@ system:
   url_login: '/web/login' # FIRENET Login page partial URL
   url_stove: '/web/stove/' # FIRENET Stove page partial URL
   url_api: '/api/client/' # FIRENET API patirl URL
-  json_path: '' # Local PATH to save JSON file
+  json_path: '' # Local PATH to save JSON file (sample: /srv/homeassistant/json.data/rika.json)
   verbose: 'False' # Dump the content of the JSON file once process is done - Value : True or False
   verbose_extended: 'False' # Dump extended content, including the Rika website page one logged : True of False
 
